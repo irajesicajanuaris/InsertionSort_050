@@ -7,7 +7,7 @@ int n;				// Membuat Variable inputan n
 void input() {		// Procedure Input
 	while (true)
 	{
-		cout << "Masukkan Jumlah Data pada Array : ";	// Membuat Inputan jumlalhl element Array
+		cout << "Masukkan Jumlah Data pada Array : ";	// Membuat Inputan jumlah element Array
 		cin >> n;										// Membuat variable inputan n
 
 		if (n <= 20) {									// Membuat kondisi n tidak lebih dari 20 
@@ -27,5 +27,33 @@ void input() {		// Procedure Input
 	{
 		cout << "Data ke-" << (i + 1) << ": ";			// Memasukkan atau menginputkan nilai data n
 		cin >> arr[i];									// menyimpan nilai data n kedalam array arr
+	}
+}
+
+void insertionsort() {					// procedure insertionsort
+
+	int temp;							// Membuat variable data temporer atau penyimpanan sementara
+	int j;								// Membuat variable j sebagai penanda
+
+	for (int i = 1; i < n; i++) {		// Looping dengan i dimulai dari 1 hingga data 1
+
+		temp = arr[i];					// Simpan nilai arr[i] ke variable sementara temp
+
+		j = i - 1;						// Setting nilai j sama dengan i-1
+
+		while (j >= 0 && arr[j] > temp)	// Looping while dimana nilai j lebih besar sama dengan 0 dan 
+										// Arr[j] lebih besar daripada temp
+		{
+			arr[j + 1] = arr[j];		// Simpan arr[j] ke dalam variable arr[j+1]
+			j--;						// Decresement nilai j by 1
+		}
+
+		arr[j + 1] = temp;				// Simpan nilai temp ke dalam arr[j+1]
+
+		cout << "\nStep " << i << ": ";	// Output ke layar
+		for (int k = 0; k < n; k++) {	// Looping nilai k dimulai dari 0 hinggga n-1
+			cout << arr[k] << " ";		// Output ke layar
+		}
+
 	}
 }
